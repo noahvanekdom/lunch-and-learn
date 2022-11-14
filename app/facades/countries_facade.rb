@@ -9,6 +9,7 @@ class CountriesFacade
   end
 
   def self.lat_long(country)
+    require 'pry'; binding.pry
     response = CountriesService.details(country).first[:latlng]
   end
 end
