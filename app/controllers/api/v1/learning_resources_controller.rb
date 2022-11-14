@@ -13,7 +13,6 @@ private
       @country = params[:country]
     else
       @country = CountriesFacade.random
-      require 'pry'; binding.pry
     end
   end
 end
