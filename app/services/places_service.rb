@@ -11,5 +11,6 @@ class PlacesService
       faraday.params['categories'] = 'tourism.sights'
       faraday.params['filter'] = "circle:#{lat_long[1]},#{lat_long[0]},20000"
     end
+    JSON.parse(response.body, symbolize_names: true)
   end
 end

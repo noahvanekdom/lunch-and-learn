@@ -2,7 +2,8 @@ class Api::V1::TouristSightsController < ApplicationController
   before_action :lat_long
 
   def index
-    data = PlacesFacade.tourist_sights(@lat_long)
+    sights = PlacesFacade.tourist_sights(@lat_long)
+    render json: TouristSightSerializer.new(data)
   end
 
 private

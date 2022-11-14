@@ -8,9 +8,9 @@ RSpec.describe 'external geoapify endpoints' do
 
     it 'can return an unformatted list of tourist attractions within 20000 meters', :vcr do
       lat_long = CountriesFacade.lat_long("France")
-      response = PlacesService.tourist_sights(lat_long)
+      json = PlacesService.tourist_sights(lat_long)
 
-      json = JSON.parse(response.body, symbolize_names: true)
+
 
       expect(json[:features]).to be_a Array
 
