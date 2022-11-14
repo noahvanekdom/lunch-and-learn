@@ -12,7 +12,7 @@ private
     if params[:country]
       @country = params[:country]
     else
-      @country = CountryFacade.random
+      @country = CountriesFacade.random
     end
   end
 end
