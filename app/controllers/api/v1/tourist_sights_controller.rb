@@ -11,8 +11,6 @@ private
   def lat_long
     if params[:country]
       @lat_long = CountriesFacade.lat_long(params[:country])
-    else
-      [nil, nil]
     end
   end
 end

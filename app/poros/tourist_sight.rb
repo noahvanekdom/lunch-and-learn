@@ -1,11 +1,11 @@
 class TouristSight
-  attr_reader :id, :name, :address, :place_id
+  attr_reader :id, :type, :name, :address, :place_id
 
   def initialize(data)
     @id = "null"
-    @properties = data[:properties]
-    @name = data[:name]
-    @address = data[:formatted]
-    @place_id = data[:place_id]
+    @type = "tourist_sight"
+    @name = data[:properties][:name]
+    @address = data[:properties][:formatted]
+    @place_id = data[:properties][:place_id]
   end
 end
