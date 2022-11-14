@@ -43,6 +43,16 @@ RSpec.describe 'the recipe index API response (api/vi/recipes?country={query})',
       expect(attributes).to_not have_key(:smarklgsmork)
     end
 
+    it 'will randomly choose a country if no country is selected as a query' do
+      get "/api/v1/recipes"
+
+      expect(response).to be_successful
+      json = JSON.parse(response.body, symbolize_names: true)
+      expect(json[:data].count).to eq 10
+      recipe_data = json[:data].first
+      attributes = recipe_data[:attributes]
+
+    end
   end
 
   context 'sad paths' do
