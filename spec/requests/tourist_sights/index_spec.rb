@@ -70,5 +70,17 @@ RSpec.describe 'tourism attractions endpoint' do
         expect(attributes).to_not have_key(:datasource)
       end
     end
+
+    describe 'sad path' do
+      describe 'when no country matches the search paramater', :vcr do
+        it 'returns an empty array with an error code' do
+          country = "eiwfwoeifjwe"
+
+          get "/api/v1/tourist_sights?country=#{country}"
+
+          expect(response.status).to eq(400)
+        end
+      end
+    end
   end
 end

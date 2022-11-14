@@ -3,7 +3,12 @@ class Api::V1::TouristSightsController < ApplicationController
 
   def index
     sights = PlacesFacade.tourist_sights(@lat_long)
-    render json: TouristSightSerializer.new(sights)
+
+    if sights
+      render json: TouristSightSerializer.new(sights)
+    else
+      render json: { data: [], status: 400 }
+    end
   end
 
 private
