@@ -12,4 +12,9 @@ class LearningResource
       youtube_id: video_data[:items].first[:id][:videoId]
     }
   end
+
+  def images
+    @image_data
+    require 'pry'; binding.pry
+  end
 end
