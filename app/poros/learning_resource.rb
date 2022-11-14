@@ -15,6 +15,5 @@ class LearningResource
 
   def images
     @image_data
-    require 'pry'; binding.pry
   end
 end
