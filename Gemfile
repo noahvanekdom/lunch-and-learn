@@ -19,6 +19,11 @@ gem 'puma', '~> 3.11'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+# JSON/API related gems
+gem 'jsonapi-serializer'
+gem 'faraday'
+gem 'figaro'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -34,7 +39,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'faker'
-
+  gem 'pry'
 end
 
 group :development do
@@ -43,6 +48,14 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+group :test do
+  gem 'shoulda-matchers'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'simplecov'
+end
+
 
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
