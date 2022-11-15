@@ -52,6 +52,8 @@ RSpec.describe 'the learning resources API endpoint (api/v1/learning_resources)'
     end
 
     it 'will return information on a random country if no country is selected', :vcr do
+
+      allow(CountriesFacade).to receive(:random).and_return('Morocco')
       get "/api/v1/learning_resources"
       expect(response).to be_successful
 

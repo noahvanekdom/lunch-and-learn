@@ -10,7 +10,7 @@ RSpec.describe 'creating users' do
     it 'creates a user when the correct information is sent in through the header and body' do
       parsed = JSON.parse(body.to_json, symbolize_names: true)
 
-      post('/api/v1/users', headers: headers, body: body)
+      post('/api/v1/users', headers: headers, params: parsed)
 
       exoect(User.last.name).to eq("Noah van Ekdom")
       expect(User.last.email).to eq(parsed[:email])
