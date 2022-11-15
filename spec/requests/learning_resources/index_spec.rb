@@ -4,8 +4,10 @@ RSpec.describe 'the learning resources API endpoint (api/v1/learning_resources)'
   describe 'happy path' do
 
     it 'returns json containing an array of different resources', :vcr do
-      country = "spain"
+      country = "belgium"
       get "/api/v1/learning_resources?country=#{country}"
+
+
     end
   end
 end

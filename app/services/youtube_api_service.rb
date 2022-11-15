@@ -7,12 +7,13 @@ class YoutubeApiService
 
 
   def self.video_by_country(country)
+
     response = conn.get do |faraday|
       faraday.params['channelId'] = 'UCluQ5yInbeAkkeCndNnUhpw'
       faraday.params['part'] = 'snippet'
       faraday.params['maxResults'] = 1
       faraday.params['q'] = country
-      faraday.params['fields'] = 'items(id/videoId,snippet/title)'
+      faraday.params['fields'] = 'items'
     end
     JSON.parse(response.body, symbolize_names: true)
   end
