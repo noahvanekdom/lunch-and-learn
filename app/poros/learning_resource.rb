@@ -11,14 +11,14 @@ class LearningResource
   def video
     {
       title: @video_data[:items].first[:snippet][:title],
-      youtube_id: @video_data[:items].first[:id][:videoId]
+      youtube_video_id: @video_data[:items].first[:id][:videoId]
     }
   end
 
   def images
     images = []
     @image_data.each do |image|
-      images << { alt_tag: image[:alt_description], url: image[:urls][:full] }
+      images << { alt_tag: image[:description], url: image[:urls][:full] }
     end
     images
   end

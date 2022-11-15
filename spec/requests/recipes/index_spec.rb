@@ -46,12 +46,13 @@ RSpec.describe 'the recipe index API response (api/vi/recipes?country={query})',
     it 'will randomly choose a country if no country is selected as a query', :vcr do
       get "/api/v1/recipes"
 
-      ##add stub here and build out expected response
+      allow(CountriesFacade).to receive(:random).and_return("Spain")
 
       expect(response).to be_successful
       json = JSON.parse(response.body, symbolize_names: true)
       recipe_data = json[:data].first
       attributes = recipe_data[:attributes]
+      expect(recipe_data[:attributes][:country]).to eq("Spain")
     end
   end
 

@@ -13,10 +13,10 @@ class Api::V1::RecipesController < ApplicationController
 private
 
   def find_country
-    if params[:country]
-      @country = params[:country]
-    else
+    if params[:country].nil?
       @country = CountriesFacade.random
+    else
+      @country = params[:country]
     end
   end
 end

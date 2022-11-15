@@ -10,10 +10,10 @@ class Api::V1::LearningResourcesController < ApplicationController
 private
 
   def set_country
-    if params[:country]
-      @country = params[:country]
-    else
+    if params[:country].nil?
       @country = CountriesFacade.random
+    else
+      @country = params[:country]
     end
   end
 end
