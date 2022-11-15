@@ -2,10 +2,10 @@ class Api::V1::UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      user.assign_api_key
+      user.add_api_key
       render json: UserSerializer.new(user), status: 201
     else
-      render json: { "FAILURE: YOU ARE BAD "}, status: 400
+      render json: user.errors.messages, status: 400
     end
   end
 
