@@ -80,5 +80,6 @@ VCR.configure do |config|
   config.configure_rspec_metadata!
   config.default_cassette_options = { re_record_interval: 7.days }
   #Uncomment below line to filter sensitive data in VCR requests.
-  # config.filter_sensitive_data('<govt_api_key>') { ENV['govt_api_key'] }
+  config.filter_sensitive_data('<edemam_api_key>') { ENV['edemam_api_key'] }
+  config.filter_sensitive_data('<edamam_app_id>') { ENV['edemam_app_id']}
 end
