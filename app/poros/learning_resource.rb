@@ -9,8 +9,6 @@ class LearningResource
   end
 
   def video
-    # require 'pry'; binding.pry
-
     {
       title: @video_data[:items].first[:snippet][:title],
       youtube_id: @video_data[:items].first[:id][:videoId]
@@ -18,6 +16,10 @@ class LearningResource
   end
 
   def images
-    @image_data
+    images = []
+    @image_data.each do |image|
+      images << { alt_tag: image[:alt_description], url: image[:urls][:full] }
+    end
+    images
   end
 end

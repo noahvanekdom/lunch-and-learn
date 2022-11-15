@@ -7,10 +7,8 @@ class UnsplashApiService
   end
 
   def self.images_by_country(country)
-    response = conn.get("photos") do |faraday|
+    response = conn.get("search/photos") do |faraday|
       faraday.params['query'] = country
-      faraday.params['page'] = 1
-      faraday.params['order_by'] = 'popular'
     end
     JSON.parse(response.body, symbolize_names: true)
   end

@@ -7,6 +7,7 @@ RSpec.describe 'the learning resources API endpoint (api/v1/learning_resources)'
       country = "belgium"
       get "/api/v1/learning_resources?country=#{country}"
 
+      require 'pry'; binding.pry
 
     end
   end

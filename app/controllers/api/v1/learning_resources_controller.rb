@@ -4,7 +4,6 @@ class Api::V1::LearningResourcesController < ApplicationController
 
   def index
     data = LearningResourcesFacade.resources_by_country(@country)
-    # require 'pry'; binding.pry
     render json: LearningResourceSerializer.new(data)
   end
 
