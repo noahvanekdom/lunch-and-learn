@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.edamam.com/search?app_id=<edamam_app_id>&app_key=<edemam_api_key>&q=ewiagoiewagoinoawegin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.6.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Wed, 16 Nov 2022 15:40:32 GMT
+      Content-Type:
+      - application/json;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - private
+      Expires:
+      - Thu, 01 Jan 1970 00:00:00 GMT
+      X-Served-By:
+      - ip-10-0-1-87.ec2.internal/10.0.1.87
+      Vary:
+      - accept-encoding
+      Strict-Transport-Security:
+      - max-age=15552001
+      X-Request-Id:
+      - dc2037a0552f8a398bca374dd3cf4b6a
+    body:
+      encoding: ASCII-8BIT
+      string: '{"q":"ewiagoiewagoinoawegin","from":0,"to":10,"more":false,"count":0,"hits":[]}'
+  recorded_at: Wed, 16 Nov 2022 15:40:32 GMT
+recorded_with: VCR 6.1.0

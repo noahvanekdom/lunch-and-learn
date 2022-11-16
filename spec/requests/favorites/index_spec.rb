@@ -42,8 +42,32 @@ RSpec.describe "the favorite index API endpoint" do
         expect(attributes[:created_at]).to be_an String
       end
 
-      describe 'sad-path' do
+      context "when a user has no favorites" do
+        it 'returns a response pointing to an empty array' do
+          user = User.create!(name: "Mr. Sprout", email: "justalilbean2@gmail.com")
+          user.add_api_key
+          get("/api/v1/favorites?api_key=#{user.api_key}", headers: @headers)
 
+          expect(response).to be_successful
+          json = JSON.parse(response.body, symbolize_names: true)
+
+          expect(json).to have_key(:data)
+          expect(json[:data]).to eq([])
+        end
+      end
+    end
+
+    describe 'sad-path' do
+      describe "when a bad api key is sent with the request" do
+        it 'returns an appropriate error message' do
+          get("/api/v1/favorites?api_key=BADKEY", headers: @headers)
+          expect(response).to_not be_successful
+          json = JSON.parse(response.body, symbolize_names: true)
+
+          expect(json).to have_key(:error)
+          expect(json[:error]).to have_key(:details)
+          expect(json[:error][:details]).to eq("That api key does not exist")
+        end
       end
     end
   end

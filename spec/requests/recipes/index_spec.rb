@@ -60,11 +60,16 @@ RSpec.describe 'the recipe index API response (api/vi/recipes?country={query})',
   end
 
   context 'sad paths' do
-    describe 'when an incorrect key is used' do
+    describe 'when no recipes are returned', :vcr do
+      it 'returns an empty object' do
+        country = ""
+        get "/api/v1/recipes?country=#{country}"
 
-    end
-    describe 'when no recipes are returned' do
-
+        expect(response).to be_successful
+        json = JSON.parse(response.body, symbolize_names: true)
+        expect(json).to have_key(:data)
+        expect(json[:data]).to eq([])
+      end
     end
   end
 end

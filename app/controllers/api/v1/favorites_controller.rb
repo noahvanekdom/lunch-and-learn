@@ -6,7 +6,7 @@ class Api::V1::FavoritesController < ApplicationController
     if favorite.save
       render json: { success: 'Favorite added successfully'}, status: 201
     else
-      render json: @user.errors.messages, status: 400
+      render json: { errors: favorite.errors.messages}, status: 400
     end
   end
 

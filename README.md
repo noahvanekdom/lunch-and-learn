@@ -1,9 +1,6 @@
 # Thanks for using the lunch_and_learn api
 
-## Set up
-
-### Run the following commands to get started using the api locally
-
+If you have issues, submit a pull request to the repo detailing your problem -- we'll get to it fast.
 #### Ruby version
 
 2.7.4
@@ -192,6 +189,7 @@ Creates a favorite in the backend database and assigns it to the user correspond
 ```get /api/v1/favorites```
 
 Returns all favorites that belong to a user with a corresponding api key. If no user corresponds to the submitted api key, an appropriate error message will be returned. If a user has no favorites, an empty array will be returned.
+
 - Params:
   - user api key (required) - string
 
@@ -199,6 +197,7 @@ Sample Request:
 >GET /api/v1/favorites
 >Content-Type: application/json
 >Accept: application/json
+>
 >```json
 >{
 >    "api_key": "jgn983hy48thw9begh98h4539h4"
@@ -206,6 +205,7 @@ Sample Request:
 >```
 
 Sample Response:
+
 ```json
 {
     "data": [
@@ -219,8 +219,7 @@ Sample Response:
                 "created_at": "2022-11-02T02:17:54.111Z"
             }
         },
-          ]
+            ]
  }
  ```
-
-
+More to come soon!
