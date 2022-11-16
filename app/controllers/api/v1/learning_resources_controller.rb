@@ -4,15 +4,16 @@ class Api::V1::LearningResourcesController < ApplicationController
 
   def index
     data = LearningResourcesFacade.resources_by_country(@country)
+    render json: LearningResourceSerializer.new(data)
   end
 
 private
 
   def set_country
-    if params[:country]
-      @country = params[:country]
-    else
+    if params[:country].nil?
       @country = CountriesFacade.random
+    else
+      @country = params[:country]
     end
   end
 end

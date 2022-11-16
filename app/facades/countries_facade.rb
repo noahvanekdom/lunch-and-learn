@@ -1,7 +1,7 @@
 class CountriesFacade
   def self.random
     response = CountriesService.all
-    response.pop[:name]
+    response.sample[:name]
   end
 
   # def self.country_details(country)

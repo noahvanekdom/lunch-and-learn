@@ -1,4 +1,4 @@
-class RecipesService
+class RecipeService
   def self.conn
     Faraday.new(url: 'https://api.edamam.com') do |faraday|
       faraday.params['app_id'] = ENV['edemam_app_id']
