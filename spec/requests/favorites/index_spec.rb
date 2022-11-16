@@ -14,7 +14,6 @@ RSpec.describe "the favorite index API endpoint" do
     end
 
     describe "happy path" do
-
       it 'returns a json response including all favorites for the user' do
         get("/api/v1/favorites?api_key=#{@user.api_key}", headers: @headers)
         expect(response).to be_successful
@@ -41,6 +40,10 @@ RSpec.describe "the favorite index API endpoint" do
         expect(attributes[:country]).to be_an String
         expect(attributes).to have_key(:created_at)
         expect(attributes[:created_at]).to be_an String
+      end
+
+      describe 'sad-path' do
+
       end
     end
   end

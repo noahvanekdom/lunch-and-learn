@@ -10,5 +10,13 @@ RSpec.describe 'Countries facade' do
 
       expect(country_coordinates).to be_a Array
     end
+
+
+    it 'can return a random country from the country array' do
+
+      country = CountriesFacade.random
+      expect(country).to be_a String
+      expect(country.length).to be > 3
+    end\
   end
 end
