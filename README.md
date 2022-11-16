@@ -46,8 +46,6 @@ To run the test suite, from the command line, run;
 
 >bundle exec rspec
 
-- Services (job queues, cache servers, search engines, etc.)
-
 ## Available Endpoints
 
 #### Recipe Index
