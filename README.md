@@ -29,10 +29,10 @@ Faraday, Figaro, JSONAPI-Serializer, Postgres, Homebrew
 
 5. Find required API Keys:
 
-- Youtube:
-- Edemam:
-- Unsplash:
-- Geoapify:
+- Youtube: https://blog.hubspot.com/website/how-to-get-youtube-api-key
+- Edemam: https://developer.edamam.com/edamam-recipe-api
+- Unsplash: https://unsplash.com/documentation#creating-a-developer-account
+- Geoapify: https://www.geoapify.com/places-api
 
 ### Database creation
 
