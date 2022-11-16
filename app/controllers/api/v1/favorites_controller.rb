@@ -10,6 +10,15 @@ class Api::V1::FavoritesController < ApplicationController
     end
   end
 
+  def index
+    favorites = @user.favorites
+    if favorites.empty?
+      render json: { data: [] }
+    else
+      render json: FavoriteSerializer.new(favorites)
+    end
+  end
+
 private
 
   def find_user
